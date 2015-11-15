@@ -4,11 +4,13 @@ public class Email {
 	private String title;
 	private Date dateC;
 	private EmailPriority priority;
-	public Email(String title, Date dateC, EmailPriority priority) {
+	private ClassPriority classPriority;
+	public Email(String title, Date dateC, EmailPriority priority, ClassPriority classPriority) {
 		super();
 		this.title = title;
 		this.dateC = dateC;
 		this.priority = priority;
+		this.classPriority = classPriority;
 	}
 	public String getTitle() {
 		return title;
@@ -28,8 +30,14 @@ public class Email {
 	public void setPriority(EmailPriority priority) {
 		this.priority = priority;
 	}
-	
-	
+
+	public ClassPriority getClassPriority() {
+		return classPriority;
+	}
+
+	public void setClassPriority(ClassPriority classPriority) {
+		this.classPriority = classPriority;
+	}
 }
 
 

@@ -85,7 +85,7 @@ public class EmailList extends JFrame {
 		gbc_scrollPane_1.gridx = 0;
 		gbc_scrollPane_1.gridy = 1;
 		contentPane.add(scrollPane_1, gbc_scrollPane_1);
-		String[] listColumns = new String[] {"Title","TimeStamp","Priority"};
+		String[] listColumns = new String[] {"Title","TimeStamp","Priority","Class"};
 		String[][] listRows = MyEmailCtrl.GetEmailList();
 		tableModel = new DefaultTableModel(listRows,listColumns);
 		table = new JTable(tableModel);

@@ -16,7 +16,7 @@ public class EmailCrtl {
 	 
 	 public String[][] GetEmailList()
 	 {
-		 String [][] EmailList = new String[100][3];
+		 String [][] EmailList = new String[100][4];
 		 int i = 0;
 		 EmailStatic.EmailQueueArray.clear();
 		 while(true) {
@@ -30,7 +30,8 @@ public class EmailCrtl {
 		        EmailList[i][0] = currentEmail.getTitle();
 		        EmailList[i][1] = currentEmail.getDateC().toString();
 		        EmailList[i][2] = currentEmail.getPriority().toString();
-		        i++;
+		     	EmailList[i][3] = currentEmail.getClassPriority().toString();
+			 i++;
 		 }
 		 while(true) {
 			 Email currentEmail = EmailStatic.EmailQueue1.poll();

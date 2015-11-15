@@ -16,6 +16,7 @@ public class EmailMan extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JComboBox comboBox;
+	private  JComboBox cbbClass;
 
 
 	/**
@@ -39,9 +40,16 @@ public class EmailMan extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Priority");
 		contentPane.add(lblNewLabel_1);
-		
+
 		comboBox = new JComboBox(EmailPriority.values());
 		contentPane.add(comboBox);
+
+		JLabel lblVClassPriority = new JLabel("Class");
+		contentPane.add(lblVClassPriority);
+
+		cbbClass = new JComboBox(ClassPriority.values());
+		contentPane.add(cbbClass);
+
 
 		JButton btnOk = new JButton("OK");
 		contentPane.add(btnOk);
@@ -63,7 +71,7 @@ public class EmailMan extends JFrame {
 	         if( command.equals( "OK" ))  {
 	        	 try {
 	        		    Email newEmail = new Email(textField.getText(),new Date(),
-	        		    		(EmailPriority)comboBox.getSelectedItem());
+	        		    		(EmailPriority)comboBox.getSelectedItem(),(ClassPriority)cbbClass.getSelectedItem());
 	        		    MyEmailCrtl.addDataToQueue(newEmail);
 	        		 	EmailList frame = new EmailList();
 						frame.setVisible(true);

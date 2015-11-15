@@ -10,7 +10,11 @@ public static Comparator<Email> idComparator = new Comparator<Email>(){
         public int compare(Email c1, Email c2) {
         	if(c1.getPriority() == c2.getPriority())
         	{
-        		return (int) (c1.getDateC().getTime() - c2.getDateC().getTime());
+				if (c1.getClassPriority() == c2.getClassPriority()){
+					return (int) (c1.getDateC().getTime() - c2.getDateC().getTime());
+				}else {
+					return (int) (c2.getClassPriority().ordinal() - c1.getClassPriority().ordinal());
+				}
         	}
         	else
         	{
