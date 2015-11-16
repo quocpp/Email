@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import com.toedter.calendar.JDateChooser;
 
 public class EmailMan extends JFrame {
 
@@ -17,7 +18,7 @@ public class EmailMan extends JFrame {
 	private JTextField textField;
 	private JComboBox comboBox;
 	private  JComboBox cbbClass;
-
+	private JDateChooser dateChooser;
 
 	/**
 	 * Create the frame.
@@ -49,6 +50,12 @@ public class EmailMan extends JFrame {
 
 		cbbClass = new JComboBox(ClassPriority.values());
 		contentPane.add(cbbClass);
+		
+		JLabel lblDate = new JLabel("DATE");
+		contentPane.add(lblDate);
+		
+		dateChooser = new JDateChooser();
+		contentPane.add(dateChooser);
 
 
 		JButton btnOk = new JButton("OK");
@@ -70,7 +77,7 @@ public class EmailMan extends JFrame {
 	         EmailCrtl MyEmailCrtl = new EmailCrtl();
 	         if( command.equals( "OK" ))  {
 	        	 try {
-	        		    Email newEmail = new Email(textField.getText(),new Date(),
+	        		    Email newEmail = new Email(textField.getText(),dateChooser.getDate(),
 	        		    		(EmailPriority)comboBox.getSelectedItem(),(ClassPriority)cbbClass.getSelectedItem());
 	        		    MyEmailCrtl.addDataToQueue(newEmail);
 	        		 	EmailList frame = new EmailList();
